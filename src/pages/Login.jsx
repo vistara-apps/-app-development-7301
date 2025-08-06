@@ -25,16 +25,16 @@ function Login() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-gray-900 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-md w-full space-y-8">
-        <div className="text-center">
+    <div className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-gray-900 py-12 px-4 sm:px-6 lg:px-8 login-container">
+      <div className="max-w-md w-full space-y-8 login-card">
+        <div className="text-center login-header">
           <div className="flex justify-center">
-            <Twitter className="h-12 w-12 text-primary-600 dark:text-primary-400" />
+            <Twitter className="h-12 w-12 text-primary-600 dark:text-primary-400 icon-large" />
           </div>
-          <h2 className="mt-6 text-3xl font-bold text-gray-900 dark:text-gray-100">
+          <h2 className="mt-6 text-3xl font-bold text-gray-900 dark:text-gray-100 login-title">
             Sign in to Twitter Monitor
           </h2>
-          <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
+          <p className="mt-2 text-sm text-gray-600 dark:text-gray-400 login-subtitle">
             Stay on top of your Twitter activity
           </p>
         </div>
@@ -42,13 +42,13 @@ function Login() {
         <div className="card">
           <div className="card-content">
             {error && (
-              <div className="mb-4 p-3 bg-red-50 dark:bg-red-900 border border-red-200 dark:border-red-700 rounded-lg flex items-center gap-2 text-red-700 dark:text-red-200">
-                <AlertCircle className="h-4 w-4" />
+              <div className="mb-4 p-3 bg-red-50 dark:bg-red-900 border border-red-200 dark:border-red-700 rounded-lg flex items-center gap-2 text-red-700 dark:text-red-200 error-message">
+                <AlertCircle className="h-4 w-4 icon" />
                 {error}
               </div>
             )}
 
-            <div className="mb-4 p-3 bg-primary-50 dark:bg-primary-900 border border-primary-200 dark:border-primary-700 rounded-lg">
+            <div className="mb-4 p-3 bg-primary-50 dark:bg-primary-900 border border-primary-200 dark:border-primary-700 rounded-lg demo-info">
               <p className="text-sm text-primary-700 dark:text-primary-200">
                 <strong>Demo credentials:</strong><br />
                 Email: demo@example.com<br />
@@ -94,7 +94,7 @@ function Login() {
               </button>
             </form>
 
-            <div className="mt-6 text-center">
+            <div className="mt-6 text-center signup-link">
               <p className="text-sm text-gray-600 dark:text-gray-400">
                 Don't have an account?{' '}
                 <Link to="/signup" className="text-primary-600 hover:text-primary-500 dark:text-primary-400 dark:hover:text-primary-300 font-medium">
