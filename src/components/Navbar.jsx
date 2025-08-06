@@ -10,6 +10,7 @@ import {
   User
 } from 'lucide-react'
 import { useAuth } from '../context/AuthContext'
+import ThemeToggle from './ThemeToggle'
 
 function Navbar() {
   const location = useLocation()
@@ -24,13 +25,13 @@ function Navbar() {
   ]
 
   return (
-    <nav className="bg-white shadow-sm border-b">
+    <nav className="bg-white dark:bg-gray-800 shadow-sm border-b border-gray-200 dark:border-gray-700">
       <div className="container">
         <div className="flex items-center justify-between py-4">
           <div className="flex items-center gap-8">
-            <Link to="/" className="flex items-center gap-2 text-xl font-bold text-blue-600">
+            <Link to="/" className="flex items-center gap-2 text-xl font-bold text-primary-600 dark:text-primary-400">
               <Twitter className="h-6 w-6" />
-              Twitch Monitor
+              Twitter Monitor
             </Link>
             
             <div className="hidden md:flex items-center gap-6">
@@ -40,8 +41,8 @@ function Navbar() {
                   to={path}
                   className={`flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
                     location.pathname === path
-                      ? 'bg-blue-50 text-blue-600'
-                      : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
+                      ? 'bg-primary-50 text-primary-600 dark:bg-primary-900 dark:text-primary-300'
+                      : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50 dark:text-gray-300 dark:hover:text-gray-100 dark:hover:bg-gray-700'
                   }`}
                 >
                   <Icon className="h-4 w-4" />
@@ -52,7 +53,7 @@ function Navbar() {
           </div>
 
           <div className="flex items-center gap-4">
-            <div className="flex items-center gap-2 text-sm text-gray-600">
+            <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300">
               <User className="h-4 w-4" />
               <span>{user?.name}</span>
               <span className={`status-badge ${
@@ -62,9 +63,11 @@ function Navbar() {
               </span>
             </div>
             
+            <ThemeToggle />
+            
             <button
               onClick={logout}
-              className="flex items-center gap-2 px-3 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-lg transition-colors"
+              className="flex items-center gap-2 px-3 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-50 dark:text-gray-300 dark:hover:text-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors"
             >
               <LogOut className="h-4 w-4" />
               Logout
@@ -74,7 +77,7 @@ function Navbar() {
       </div>
 
       {/* Mobile navigation */}
-      <div className="md:hidden border-t">
+      <div className="md:hidden border-t border-gray-200 dark:border-gray-700">
         <div className="flex overflow-x-auto py-2 px-4 gap-1">
           {navItems.map(({ path, icon: Icon, label }) => (
             <Link
@@ -82,8 +85,8 @@ function Navbar() {
               to={path}
               className={`flex flex-col items-center gap-1 px-3 py-2 rounded-lg text-xs font-medium transition-colors whitespace-nowrap ${
                 location.pathname === path
-                  ? 'bg-blue-50 text-blue-600'
-                  : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
+                  ? 'bg-primary-50 text-primary-600 dark:bg-primary-900 dark:text-primary-300'
+                  : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50 dark:text-gray-300 dark:hover:text-gray-100 dark:hover:bg-gray-700'
               }`}
             >
               <Icon className="h-4 w-4" />
